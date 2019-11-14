@@ -26,3 +26,10 @@ enum AppVersionValidator: StringValidator, StringComparator {
         return leftComponents.count < rightComponents.count
     }
 }
+
+extension AppVersion {
+    static var current: AppVersion {
+        let currentVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        return AppVersion(currentVersion)!
+    }
+}
